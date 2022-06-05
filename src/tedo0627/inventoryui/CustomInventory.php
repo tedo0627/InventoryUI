@@ -3,6 +3,7 @@
 namespace tedo0627\inventoryui;
 
 use pocketmine\inventory\SimpleInventory;
+use pocketmine\item\Item;
 use pocketmine\network\mcpe\protocol\ContainerOpenPacket;
 use pocketmine\network\mcpe\protocol\SetActorLinkPacket;
 use pocketmine\network\mcpe\protocol\types\BlockPosition;
@@ -12,13 +13,35 @@ use pocketmine\player\Player;
 
 class CustomInventory extends SimpleInventory {
 
+    private int $tick = -1;
+
+    private string $title;
+    private int $length;
     private array $entities = [];
+
+    public function __construct(int $size, string $title = "inventory", ?int $verticalLength = null) {
+        if ($size < 0) {
+            throw new IllegalInventorySizeException("The size of the inventory must be greater than 0");
+        }
+        parent::__construct($size);
+
+        $this->title = $title;
+        if ($verticalLength != null && 0 <= $verticalLength && $verticalLength <= 6) {
+            $this->length = $verticalLength;
+        } else {
+            $length = $size / 9 + ($size % 9 == 0 ? 0 : 1);
+            if ($length > 6) $length = 6;
+
+            $this->length = $length;
+        }
+    }
 
     public function getPackets(Player $player, int $id): array {
         $name = $player->getName();
         if (!array_key_exists($name, $this->entities)) {
             $entity = new InventoryEntity($player->getLocation());
             $entity->setSlot($this->getSize());
+            $entity->setNameTag("§" . $this->length . "§r§r§r§r§r§r§r§r§r§r" . $this->title);
             $this->entities[$name] = $entity;
         } else {
             $entity = $this->entities[$name];
@@ -53,6 +76,21 @@ class CustomInventory extends SimpleInventory {
         $this->close($who);
     }
 
+    public final function onTick(int $tick): void {
+        if ($this->tick === $tick) return;
+
+        $this->tick = $tick;
+        $this->onTick($tick);
+    }
+
+    public function getTitle(): string {
+        return $this->title;
+    }
+
+    public function getVerticalLength(): int {
+        return $this->length;
+    }
+
     public function open(Player $Player): void {
 
     }
@@ -61,7 +99,11 @@ class CustomInventory extends SimpleInventory {
 
     }
 
-    public function click(Player $player, int $slot): bool {
+    public function click(Player $player, int $slot, Item $sourceItem, Item $targetItem): bool {
         return false;
+    }
+
+    public function tick(int $tick): void {
+
     }
 }
