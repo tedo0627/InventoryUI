@@ -1,5 +1,5 @@
 name: InventoryUI
-main: tedo0627\inventoryui\InventoryUI
 version: 1.0.0
+antigen: tedo0627\inventoryui
 api: 4.3.0
 author: tedo0627

@@ -14,7 +14,7 @@ class InventoryTickTask extends Task {
     public function onRun(): void {
         foreach ($this->server->getOnlinePlayers() as $player) {
             $inventory = $player->getCurrentWindow();
-            if ($inventory instanceof CustomInventory) $inventory->tick($this->tick);
+            if ($inventory instanceof CustomInventory) $inventory->onTick($this->tick);
         }
 
         $this->tick++;

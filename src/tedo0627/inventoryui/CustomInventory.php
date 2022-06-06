@@ -10,6 +10,7 @@ use pocketmine\network\mcpe\protocol\types\BlockPosition;
 use pocketmine\network\mcpe\protocol\types\entity\EntityLink;
 use pocketmine\network\mcpe\protocol\types\inventory\WindowTypes;
 use pocketmine\player\Player;
+use tedo0627\inventoryui\exception\IllegalInventorySizeException;
 
 class CustomInventory extends SimpleInventory {
 
@@ -80,7 +81,7 @@ class CustomInventory extends SimpleInventory {
         if ($this->tick === $tick) return;
 
         $this->tick = $tick;
-        $this->onTick($tick);
+        $this->tick($tick);
     }
 
     public function getTitle(): string {
@@ -91,7 +92,7 @@ class CustomInventory extends SimpleInventory {
         return $this->length;
     }
 
-    public function open(Player $Player): void {
+    public function open(Player $player): void {
 
     }
 
