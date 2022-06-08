@@ -8,12 +8,12 @@ This is the PocketMine virion that implements the dummy inventory.
 * Vertical length of inventory slots can be specified. (max. 6)
 
 ## How to install
-1. Download ```InventoryUIResourcePack``` and put it in the resource_packs folder
-2. Open file ```resource_packs.yml```, set ```force_resources``` to true and ```resource_stack``` to the name of the file
+1. Download [InventoryUIResourcePack.mcpack](https://github.com/tedo0627/InventoryUIResourcePack/releases/) and put it in the resource_packs folder
+2. Open file ```resource_packs.yml```, set **force_resources** to ```true``` and **resource_stack** to ```InventoryUIResourcePack.mcpack```
 ```yml
 force_resources: true
 resource_stack:
-  - InventoryUIResourcePack.zip
+  - InventoryUIResourcePack.mcpack
 ```
 
 ## Usage
