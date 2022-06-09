@@ -92,18 +92,32 @@ class CustomInventory extends SimpleInventory {
         return $this->length;
     }
 
+    /**
+     * Called when a player opens this inventory.
+     */
     public function open(Player $player): void {
 
     }
 
+    /**
+     * Called every tick when someone opens inventory.
+     */
     public function close(Player $player): void {
 
     }
 
+    /**
+     * Called when a slot in the inventory is operated.
+     *
+     * @return bool If true, the operation is canceled.
+     */
     public function click(Player $player, int $slot, Item $sourceItem, Item $targetItem): bool {
         return false;
     }
 
+    /**
+     * Called when the player closes the inventory.
+     */
     public function tick(int $tick): void {
 
     }
