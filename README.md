@@ -58,6 +58,8 @@ class SampleInventory extends CustomInventory {
 }
 ```
 
+Sample plugin [here](https://github.com/tedo0627/SampleInventoryUI)
+
 ## License
 "InventoryUI" is under [MIT License](https://github.com/tedo0627/InventoryUI/blob/master/LICENSE)
 
