@@ -32,7 +32,7 @@ class EventListener implements Listener {
 
             $player = $transaction->getSource();
             $slot = $action->getSlot();
-            if (!$inventory->click($player, $slot, $action->getSourceItem(), $action->getSourceItem())) continue;
+            if (!$inventory->click($player, $slot, $action->getSourceItem(), $action->getTargetItem())) continue;
 
             $event->cancel();
             return;
