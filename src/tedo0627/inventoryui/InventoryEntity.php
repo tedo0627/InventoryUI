@@ -11,6 +11,14 @@ use pocketmine\network\mcpe\protocol\types\inventory\WindowTypes;
 
 class InventoryEntity extends Entity {
 
+    protected function getInitialDragMultiplier(): float {
+        return 0.0;
+    }
+
+    protected function getInitialGravity(): float {
+        return 0.0;
+    }
+    
     protected function getInitialSizeInfo(): EntitySizeInfo {
         return new EntitySizeInfo(0, 0);
     }
