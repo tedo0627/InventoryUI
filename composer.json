@@ -6,6 +6,11 @@
   "require": {
     "pocketmine/pocketmine-mp": "^5.0.0"
   },
+	"autoload": {
+		"psr-4": {
+			"tedo0627\\inventoryui\\": "src/"
+		}
+	},
   "extra": {
     "virion":{
       "spec": "3.0",
