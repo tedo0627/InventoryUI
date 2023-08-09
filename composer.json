@@ -1,0 +1,20 @@
+{
+  "name": "tedo0627/inventoryui",
+  "description": "This is the PocketMine virion that implements the dummy inventory.",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "require": {
+    "pocketmine/pocketmine-mp": "^5.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "tedo0627\\inventoryui\\": "src/"
+    }
+  },
+  "extra": {
+    "virion":{
+      "spec": "3.0",
+      "namespace-root": "tedo0627\\inventoryui"
+    }
+  }
+}
