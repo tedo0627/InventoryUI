@@ -12,7 +12,7 @@ class InventoryUI {
     private static bool $setup = false;
 
     private const uuid = "21f0427f-572a-416d-a90e-c5d9becb0fa3";
-    private const version = "1.0.0";
+    private const version = "1.1.0";
 
     public static function setup(PluginBase $plugin): void {
         if (self::$setup) return;
