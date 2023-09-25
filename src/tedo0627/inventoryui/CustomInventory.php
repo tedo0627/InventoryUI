@@ -18,6 +18,7 @@ class CustomInventory extends SimpleInventory {
 
     private string $title;
     private int $length;
+    private bool $scroll;
     private array $entities = [];
 
     public function __construct(int $size, string $title = "inventory", ?int $verticalLength = null) {
@@ -35,6 +36,8 @@ class CustomInventory extends SimpleInventory {
 
             $this->length = $length;
         }
+
+        $this->scroll = $this->length * 9 < $size;
     }
 
     public function getPackets(Player $player, int $id): array {
@@ -42,7 +45,8 @@ class CustomInventory extends SimpleInventory {
         if (!array_key_exists($name, $this->entities)) {
             $entity = new InventoryEntity($player->getLocation());
             $entity->setSlot($this->getSize());
-            $entity->setNameTag("§" . $this->length . "§r§r§r§r§r§r§r§r§r§r" . $this->title);
+            $scrollFlag = $this->scroll ? 1 : 0;
+            $entity->setNameTag("§" . $this->length . "§" . $scrollFlag . "§r§r§r§r§r§r§r§r§r" . $this->title);
             $this->entities[$name] = $entity;
         } else {
             $entity = $this->entities[$name];
