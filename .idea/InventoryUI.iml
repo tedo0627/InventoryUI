@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/vendor/brick/math" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/adhocore/json-comment" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pocketmine/raklib" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pocketmine/bedrock-protocol" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pocketmine/math" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pocketmine/binaryutils" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pocketmine/raklib-ipc" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pocketmine/bedrock-block-upgrade-schema" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pocketmine/callback-validator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pocketmine/errorhandler" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pocketmine/pocketmine-mp" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pocketmine/netresearch-jsonmapper" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pocketmine/locale-data" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pocketmine/log" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pocketmine/nbt" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pocketmine/bedrock-data" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pocketmine/bedrock-item-upgrade-schema" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pocketmine/color" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/ramsey/uuid" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pocketmine/snooze" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/ramsey/collection" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/filesystem" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
