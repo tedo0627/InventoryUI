@@ -67,4 +67,4 @@ Sample plugin [here](https://github.com/tedo0627/SampleInventoryUI)
 "InventoryUI" is under [MIT License](https://github.com/tedo0627/InventoryUI/blob/master/LICENSE)
 
 ## Special Thanks
-Help resource pack [@famima65536](https://github.com/famima65536)
+Help resource pack [@yuyaprgrm](https://github.com/yuyaprgrm)
