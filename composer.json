@@ -8,7 +8,7 @@
   },
   "autoload": {
     "psr-4": {
-      "tedo0627\\inventoryui\\": "src/"
+      "tedo0627\\inventoryui\\": "src/tedo0627/inventoryui/"
     }
   },
   "extra": {
