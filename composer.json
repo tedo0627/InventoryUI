@@ -3,7 +3,7 @@
   "description": "This is the PocketMine virion that implements the dummy inventory.",
   "minimum-stability": "stable",
   "license": "MIT",
-  "require": {
+  "require-dev": {
     "pocketmine/pocketmine-mp": "^5.6.0"
   },
   "autoload": {
