@@ -7,7 +7,9 @@
     "pocketmine/pocketmine-mp": "^5.6.0"
   },
   "autoload": {
-    "tedo0627\\inventoryui\\": "src"
+    "psr-4": {
+      "tedo0627\\inventoryui\\": "src/tedo0627/inventoryui/"
+    }
   },
   "extra": {
     "virion":{
