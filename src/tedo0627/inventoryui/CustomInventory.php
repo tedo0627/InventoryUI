@@ -31,7 +31,7 @@ class CustomInventory extends SimpleInventory {
         if ($verticalLength != null && 0 <= $verticalLength && $verticalLength <= 6) {
             $this->length = $verticalLength;
         } else {
-            $length = $size / 9 + ($size % 9 == 0 ? 0 : 1);
+            $length = intval($size / 9) + ($size % 9 == 0 ? 0 : 1);
             if ($length > 6) $length = 6;
 
             $this->length = $length;
