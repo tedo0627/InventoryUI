@@ -14,20 +14,16 @@ use tedo0627\inventoryui\exception\IllegalInventorySizeException;
 
 class CustomInventory extends SimpleInventory {
 
-    private int $tick = -1;
-
-    private string $title;
     private int $length;
     private bool $scroll;
     private array $entities = [];
 
-    public function __construct(int $size, string $title = "inventory", ?int $verticalLength = null) {
+    public function __construct(int $size, private string $title = "inventory", ?int $verticalLength = null) {
         if ($size < 0) {
             throw new IllegalInventorySizeException("The size of the inventory must be greater than 0");
         }
         parent::__construct($size);
 
-        $this->title = $title;
         if ($verticalLength != null && 0 <= $verticalLength && $verticalLength <= 6) {
             $this->length = $verticalLength;
         } else {
@@ -79,13 +75,6 @@ class CustomInventory extends SimpleInventory {
         }
 
         $this->close($who);
-    }
-
-    public final function onTick(int $tick): void {
-        if ($this->tick === $tick) return;
-
-        $this->tick = $tick;
-        $this->tick($tick);
     }
 
     public function getTitle(): string {

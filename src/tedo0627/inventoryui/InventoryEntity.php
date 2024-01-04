@@ -64,7 +64,7 @@ class InventoryEntity extends Entity {
 
     public function onUpdate(int $currentTick): bool {
         $result = parent::onUpdate($currentTick);
-        $this->inventory->onTick($currentTick);
+        $this->inventory->tick($currentTick);
         return $result;
     }
 }
