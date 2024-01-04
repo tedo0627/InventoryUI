@@ -39,7 +39,13 @@ class InventoryEntity extends Entity {
         $properties->setInt(EntityMetadataProperties::CONTAINER_BASE_SIZE, $this->slot);
     }
 
+    protected CustomInventory $inventory;
     protected int $slot = 9;
+
+    public function init(CustomInventory $inventory): void {
+        $this->inventory = $inventory;
+        $this->setSlot($inventory->getSize());
+    }
 
     public function getSlot(): int {
         return $this->slot;
@@ -54,5 +60,11 @@ class InventoryEntity extends Entity {
 
         $this->sendData(null, $changedProperties);
         $this->getNetworkProperties()->clearDirtyProperties();
+    }
+
+    public function onUpdate(int $currentTick): bool {
+        $result = parent::onUpdate($currentTick);
+        $this->inventory->onTick($currentTick);
+        return $result;
     }
 }

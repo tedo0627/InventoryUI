@@ -35,8 +35,6 @@ class InventoryUI {
 
         $server->getPluginManager()->registerEvents(new EventListener(), $plugin);
 
-        $plugin->getScheduler()->scheduleRepeatingTask(new InventoryTickTask($server), 1);
-
         $nbt = new CompoundTag();
         $nbt->setString("bid", "");
         $nbt->setByte("hasspawnegg", false);

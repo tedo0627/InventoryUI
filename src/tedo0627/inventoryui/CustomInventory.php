@@ -44,7 +44,7 @@ class CustomInventory extends SimpleInventory {
         $name = $player->getName();
         if (!array_key_exists($name, $this->entities)) {
             $entity = new InventoryEntity($player->getLocation());
-            $entity->setSlot($this->getSize());
+            $entity->init($this);
             $scrollFlag = $this->scroll ? 1 : 0;
             $entity->setNameTag("§" . $this->length . "§" . $scrollFlag . "§r§r§r§r§r§r§r§r§r" . $this->title);
             $this->entities[$name] = $entity;
