@@ -104,7 +104,7 @@ class CustomInventory extends SimpleInventory {
     }
 
     /**
-     * Called every tick when someone opens inventory.
+     * Called when the player closes the inventory.
      */
     public function close(Player $player): void {
 
@@ -120,7 +120,7 @@ class CustomInventory extends SimpleInventory {
     }
 
     /**
-     * Called when the player closes the inventory.
+     * Called every tick when someone opens inventory.
      */
     public function tick(int $tick): void {
 
