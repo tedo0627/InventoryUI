@@ -54,7 +54,7 @@ class CustomInventory extends SimpleInventory {
 
         $entity->spawnTo($player);
 
-        $link = new EntityLink($player->getId(), $entity->getId(), EntityLink::TYPE_RIDER, true, true);
+        $link = new EntityLink($player->getId(), $entity->getId(), EntityLink::TYPE_RIDER, true, true, 0.0);
         $pk1 = SetActorLinkPacket::create($link);
 
         $pk2 = ContainerOpenPacket::entityInv($id, WindowTypes::CONTAINER, $entity->getId());
