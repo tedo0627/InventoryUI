@@ -37,6 +37,10 @@ class InventoryUI {
 
         $plugin->getScheduler()->scheduleRepeatingTask(new InventoryTickTask($server), 1);
 
+        EntityFactory::getInstance()->register(InventoryEntity::class, function (World $world, CompoundTag $nbt): InventoryEntity {
+            return new InventoryEntity(EntityDataHelper::parseLocation($nbt, $world), $nbt);
+        }, ["inventoryui:inventory"]);
+
         $nbt = new CompoundTag();
         $nbt->setString("bid", "");
         $nbt->setByte("hasspawnegg", false);
