@@ -10,6 +10,7 @@ use pocketmine\network\mcpe\protocol\types\BlockPosition;
 use pocketmine\network\mcpe\protocol\types\entity\EntityLink;
 use pocketmine\network\mcpe\protocol\types\inventory\WindowTypes;
 use pocketmine\player\Player;
+use pocketmine\scheduler\ClosureTask;
 use tedo0627\inventoryui\exception\IllegalInventorySizeException;
 
 class CustomInventory extends SimpleInventory {
@@ -40,7 +41,7 @@ class CustomInventory extends SimpleInventory {
         $this->scroll = $this->length * 9 < $size;
     }
 
-    public function getPackets(Player $player, int $id): array {
+    public function sendOpenPacket(Player $player, int $id): array {
         $name = $player->getName();
         if (!array_key_exists($name, $this->entities)) {
             $entity = new InventoryEntity($player->getLocation());
@@ -57,10 +58,18 @@ class CustomInventory extends SimpleInventory {
         $link = new EntityLink($player->getId(), $entity->getId(), EntityLink::TYPE_RIDER, true, true, 0.0);
         $pk1 = SetActorLinkPacket::create($link);
 
-        $pk2 = ContainerOpenPacket::entityInv($id, WindowTypes::CONTAINER, $entity->getId());
-        $pk2->blockPosition = BlockPosition::fromVector3($entity->getLocation());
+        // Delays became necessary from around version 1.21.90.
+        InventoryUI::getInstance()->getScheduler()->scheduleDelayedTask(new ClosureTask(function () use ($player, $id, $entity) {
+            if (!$player->isOnline()) return;
 
-        return [$pk1, $pk2];
+            $pk2 = ContainerOpenPacket::entityInv($id, WindowTypes::CONTAINER, $entity->getId());
+            $pk2->blockPosition = BlockPosition::fromVector3($entity->getLocation());
+            $player->getNetworkSession()->sendDataPacket($pk2);
+
+            $player->getNetworkSession()->getInvManager()->syncContents($this);
+        }), 10);
+
+        return [$pk1];
     }
 
     public final function onOpen(Player $who): void {

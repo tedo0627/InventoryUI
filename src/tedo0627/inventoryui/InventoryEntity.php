@@ -35,7 +35,7 @@ class InventoryEntity extends Entity {
     protected function syncNetworkData(EntityMetadataCollection $properties): void {
         parent::syncNetworkData($properties);
 
-        $properties->setByte(EntityMetadataProperties::CONTAINER_TYPE, WindowTypes::INVENTORY);
+        $properties->setByte(EntityMetadataProperties::CONTAINER_TYPE, WindowTypes::CONTAINER);
         $properties->setInt(EntityMetadataProperties::CONTAINER_BASE_SIZE, $this->slot);
     }
 

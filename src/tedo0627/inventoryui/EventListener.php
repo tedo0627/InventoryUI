@@ -18,7 +18,7 @@ class EventListener implements Listener {
             ->add(function(int $id, Inventory $inventory) use($player): ?array {
                 if (!$inventory instanceof CustomInventory) return null;
 
-                return $inventory->getPackets($player, $id);
+                return $inventory->sendOpenPacket($player, $id);
             });
     }
 
