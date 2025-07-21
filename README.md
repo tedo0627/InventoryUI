@@ -10,6 +10,21 @@ This is the PocketMine virion that implements the dummy inventory.
 ## Demo
 https://github.com/tedo0627/InventoryUI/assets/24734045/3a0f3c90-2c02-4e1e-b9fd-69a868dbfbad
 
+## Preview
+
+<details>
+<summary>open</summary>
+
+| length: 1, slot: 5          | length: 1, slot: 9          | length: 2, slot 18           |
+|:----------------------------|:----------------------------|:-----------------------------|
+| ![](image/length1slot5.png) | ![](image/length1slot9.png) | ![](image/length2slot18.png) |
+
+| length: 5, slot: 45          | length: 5, slot: 100          | length: 6, slot 100           |
+|:-----------------------------|:------------------------------|:------------------------------|
+| ![](image/length5slot45.png) | ![](image/length5slot100.png) | ![](image/length6slot100.png) |
+
+</details>
+
 ## How to install
 1. Download [InventoryUIResourcePack.mcpack](https://github.com/tedo0627/InventoryUIResourcePack/releases/) and put it in the resource_packs folder
 2. Open file ```resource_packs.yml```, set **force_resources** to ```true``` and **resource_stack** to ```InventoryUIResourcePack.mcpack```
